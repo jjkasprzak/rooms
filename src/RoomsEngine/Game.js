@@ -26,7 +26,7 @@ class Game extends Component{
 
     perform(action){
         let targetRoomName = action.target
-        if(targetRoomName.isArray())
+        if(Array.isArray(targetRoomName))
         {
             let shot = Math.random()*100
             let tmp=0
