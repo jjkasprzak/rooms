@@ -13,14 +13,7 @@ class RoomsEngine extends Component{
     }
 
     render(){
-        return (
-        <div>
-            {
-                this.state.gameData === null ?
-                <h1>Loading...</h1> :
-                <Game game={this.state.gameData}/>
-            }
-        </div>)
+        return ( this.state.gameData === null ? <h1>Loading...</h1> : <Game game={this.state.gameData}/> )
     }
 
     setGameData(data){
