@@ -1,34 +1,58 @@
 import React, {Component} from 'react'
 
 import Console from './Console'
+import ActionBar from './ActionBar'
 class Game extends Component{
     constructor(props){
         super(props)
+        
+        const initialLog = [this.props.game.rooms[0].onEnter].filter((item) => item !== null)
 
-        const entry= this.props.game.rooms[0].onEnter 
-        const initialLog = entry === null ? [] : [entry];
         this.state = {
-            cRoom: 0,
-            log: initialLog
+            log: initialLog,
+            room: this.props.game.rooms[0]
         }
 
-        this.addEntry = this.addEntry.bind(this);
+        this.perform= this.perform.bind(this);
     }
 
     render(){
         return (
         <div>
             <Console log={this.state.log}/>
+            <ActionBar actions={this.state.room.actions} onAction={this.perform}/>
         </div>)
     }
 
-    addEntry(entry){
+    perform(action){
+        let targetRoomName = action.target
+        if(targetRoomName.isArray())
+        {
+            let shot = Math.random()*100
+            let tmp=0
+            let hit=false;
+
+            action.target.forEach((item)=>{
+                tmp+=item[0]
+                if(!hit && shot < tmp)
+                {
+                    targetRoomName = item[1]
+                    hit=true
+                }
+            })
+        }
+
+        const nextRoom = this.props.game.rooms.filter((room)=> room.name === targetRoomName)[0]
+        let newlog = [
+            nextRoom.onEnter,
+            this.state.room.onExit,
+            ...this.state.log].filter((item) => item !== null)
+
         this.setState({
-            log: [
-                entry,
-                ...this.state.log.slice(0,7)
-            ]
+            log: newlog.slice(0,8),
+            room: nextRoom
         })
+
     }
 }
 export default Game;

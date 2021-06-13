@@ -8,7 +8,7 @@
             "actions":[
                 {
                     "name": "Go through portal",
-                    "rooms":[
+                    "target":[
                         [50, "A"],
                         [50, "B"]
                     ]
@@ -22,11 +22,11 @@
             "actions":[
                 {
                     "name": "Go to B",
-                    "rooms":"B"
+                    "target":"B"
                 },
                 {
                     "name": "Go back",
-                    "rooms":"Test"
+                    "target":"Test"
                 }
             ]
         },
@@ -37,11 +37,11 @@
             "actions":[
                 {
                     "name": "Go to A",
-                    "rooms":"A"
+                    "target":"A"
                 },
                 {
                     "name": "Go back",
-                    "rooms":"Test"
+                    "target":"Test"
                 }
             ]
         }
