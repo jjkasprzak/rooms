@@ -1,6 +1,61 @@
 {
     "name": "test",
     "rooms":[
-        null
+        {
+            "name": "Test",
+            "onEnter": "Enter",
+            "onExit": "Exit",
+            "actions":[
+                {
+                    "name": "Go through portal",
+                    "rooms":[
+                        [50, "A"],
+                        [50, "B"]
+                    ]
+                }
+            ],
+            "events":{
+                "prints":[
+                    [10, "10s passed"]
+                ],
+                "actions":[
+                    [15, {
+                        "name": "Go to B",
+                        "rooms":"B"
+                    }]
+                ]
+            }
+            
+        },
+        {
+            "name": "A",
+            "onEnter": "Enter A",
+            "onExit": "Exit A",
+            "actions":[
+                {
+                    "name": "Go to B",
+                    "rooms":"B"
+                },
+                {
+                    "name": "Go back",
+                    "rooms":"Test"
+                }
+            ]
+        },
+        {
+            "name": "B",
+            "onEnter": "Enter B",
+            "onExit": "Exit B",
+            "actions":[
+                {
+                    "name": "Go to A",
+                    "rooms":"A"
+                },
+                {
+                    "name": "Go back",
+                    "rooms":"Test"
+                }
+            ]
+        }
     ]
 }
