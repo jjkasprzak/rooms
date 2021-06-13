@@ -1,10 +1,11 @@
 import React, {Component} from 'react'
 
+import Game from './Game'
 class RoomsEngine extends Component{
     constructor(props){
         super(props)
 
-        fetch("Game.json").then(r=> r.json()).then(data => this.setGameData(data))
+        fetch("gameData.json").then(r=> r.json()).then(data => this.setGameData(data))
         this.state ={
             gameData: null
         }
@@ -17,10 +18,9 @@ class RoomsEngine extends Component{
             {
                 this.state.gameData === null ?
                 <h1>Loading...</h1> :
-                <h1> {this.state.gameData.name} </h1>
+                <Game game={this.state.gameData}/>
             }
-        </div>
-        );
+        </div>)
     }
 
     setGameData(data){
