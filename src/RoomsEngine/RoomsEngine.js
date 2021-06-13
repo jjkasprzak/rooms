@@ -1,35 +1,30 @@
 import React, {Component} from 'react'
 
-import Loader from './Loader'
-import Core from './Core'
-class RoomsEngine extends Component
-{
-    constructor()
-    {
-        this.state =
-        {
+class RoomsEngine extends Component{
+    constructor(props){
+        super(props)
+
+        fetch("Game.json").then(r=> r.json()).then(data => this.setGameData(data))
+        this.state ={
             gameData: null
         }
         this.setGameData = this.setGameData.bind(this)
     }
 
-    render()
-    {
+    render(){
         return (
         <div>
-            { 
-            this.state.gameData === null ? 
-            <Loader load={this.setGameData}/> : 
-            <Core game={gameData} exit={ ()=>this.setGameData(null) }/> 
-            } 
+            {
+                this.state.gameData === null ?
+                <h1>Loading...</h1> :
+                <h1> {this.state.gameData.name} </h1>
+            }
         </div>
         );
     }
 
-    setGameData(data)
-    {
-        this.setState(
-            {
+    setGameData(data){
+        this.setState({
                 gameData: data
             })
     }
