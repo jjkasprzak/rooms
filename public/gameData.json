@@ -13,19 +13,7 @@
                         [50, "B"]
                     ]
                 }
-            ],
-            "events":{
-                "prints":[
-                    [10, "10s passed"]
-                ],
-                "actions":[
-                    [15, {
-                        "name": "Go to B",
-                        "rooms":"B"
-                    }]
-                ]
-            }
-            
+            ]
         },
         {
             "name": "A",
