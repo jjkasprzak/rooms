@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 
 import Console from './Console'
 import ActionBar from './ActionBar'
+
+import "./Game.css"
 class Game extends Component{
     constructor(props){
         super(props)
@@ -18,7 +20,7 @@ class Game extends Component{
 
     render(){
         return (
-        <div>
+        <div className="Game">
             <Console log={this.state.log}/>
             <ActionBar actions={this.state.room.actions} onAction={this.perform}/>
         </div>)

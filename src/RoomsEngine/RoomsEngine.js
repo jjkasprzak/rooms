@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 
 import Game from './Game'
+import './RoomsEngine.css'
 class RoomsEngine extends Component{
     constructor(props){
         super(props)

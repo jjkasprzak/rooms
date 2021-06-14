@@ -3,7 +3,7 @@
     "rooms":[
         {
             "name": "Test",
-            "onEnter": "Enter",
+            "onEnter": "Entersśzżaąćó",
             "onExit": "Exit",
             "actions":[
                 {

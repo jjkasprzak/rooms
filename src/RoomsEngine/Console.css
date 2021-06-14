@@ -1,0 +1,12 @@
+.Console{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.p2{
+    opacity: 40%;
+}
+
+.p1{
+    opacity: 20%;
+}
