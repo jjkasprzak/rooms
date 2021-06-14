@@ -48,7 +48,7 @@ class Game extends Component{
         let newlog = [
             nextRoom.onEnter,
             this.state.room.onExit,
-            ...this.state.log].filter((item) => item !== null)
+            ...this.state.log].filter((item) => item != null)
 
         this.setState({
             log: newlog.slice(0,8),
