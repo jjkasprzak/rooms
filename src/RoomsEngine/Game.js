@@ -51,7 +51,7 @@ class Game extends Component{
             ...this.state.log].filter((item) => item != null)
 
         this.setState({
-            log: newlog.slice(0,8),
+            log: newlog.slice(0,24),
             room: nextRoom
         })
 
