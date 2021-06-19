@@ -1,173 +1,47 @@
 {
-    "name": "Ucieczka",
+    "name": "Example",
     "rooms":[
         {
-            "name": "Zamkniete oczy",
-            "onEnter": "Ciszę przerywa odgłos otwieranego zamka.",
-            "onExit": "Twoim oczom ukazuje się cela, nie pamiętasz jak się tu znalazłeś.",
+            "name": "Portal room",
+            "onEnter": "You've entered the portal room",
+            "onExit": "You've left the portal room",
             "actions":[
                 {
-                    "name": "Otwórz oczy",
-                    "target": "Otwarte oczy"
-                }
-            ]
-        },
-        {
-            "name": "Otwarte oczy",
-            "onEnter": "Do środka wchodzi strażnik, wygląda na zmęczonego",
-            "onExit": "Strażnik: Zostałeś oskarżony o zdradę, przed chwilą został wydany wyrok skazujący cię na śmierć.",
-            "actions":[
-                {
-                    "name": "\"Co się dzieje?\"",
-                    "target":"Przebudzenie"
-                }
-            ]
-        },
-        {
-            "name": "Przebudzenie",
-            "onEnter": "Strażnik: Egzekucja za godzinę, przygotuj się.",
-            "onExit": "Nie odpowiadając strażnik wyszedł zakluczając za sobą cele.",
-            "actions":[
-                {
-                    "name": "\"Ja nic nie zrobiłem, nie wiem nawet kim jestem\"",
-                    "target":"Cela"
-                }
-            ]
-        },
-        {
-            "name": "Cela",
-            "onEnter": "W celi znajduję się tylko twarde łóżko",
-            "actions":[
-                {
-                    "name": "Poszukaj czegoś przydatnego",
-                    "target":"Skarby"
-                }
-            ]
-        },
-        {
-            "name": "Skarby",
-            "onEnter": "Cegła w ścianie była luźna i udało ci się ją wyciągnąć a na podłodze znalazłeś sztywny kawałek drutu",
-            "actions":[
-                {
-                    "name": "Spróbuj otworzyć zamek kawałkiem drutu",
-                    "target":[
-                        [50, "Zamek otwarty"],
-                        [50, "Zamek zamkniety"]
+                    "name": "Go through the portal",
+                    "target": [
+                        [50, "A"],
+                        [50, "B"]
                     ]
+                }
+            ]
+        },
+        {
+            "name": "A",
+            "onEnter": "You are in room A",
+            "actions":[
+                {
+                    "name": "Go back",
+                    "target": "Portal room"
                 },
                 {
-                    "name": "Odpocznij",
-                    "target":"Odpoczynek"
+                    "name": "Go to B",
+                    "target": "B"
                 }
             ]
         },
         {
-            "name": "Odpoczynek",
-            "onEnter": "Kładziesz się na łóżko by zregenerować siły... Po godzinie wraca strażnik otwiera cele i próbuje cię obudzić",
+            "name": "B",
+            "onEnter": "You are in room B",
             "actions":[
                 {
-                    "name": "Ceglany atak",
-                    "target":"Ceglany atak"
-                }
-            ]
-        },
-        {
-            "name": "Ceglany atak",
-            "onEnter": "Zaskakujesz strażnika szybkim atakiem w głowę, strażnik traci przytomność",
-            "actions":[
-                {
-                    "name": "Wyjdź z celi",
-                    "target":"Wyjście"
-                }
-            ]
-        },
-        {
-            "name": "Zamek zamkniety",
-            "onEnter": "Kawałek drutu złamał się przy próbie otwarcia zamka, drzwi ani drgną.",
-            "actions":[
-                {
-                    "name": "Odpocznij",
-                    "target":"Odpoczynek"
-                }
-            ]
-        },
-        {
-            "name": "Zamek otwarty",
-            "onEnter": "Otworzyłeś zamek z zaskakującą łatwością",
-            "actions":[
-                {
-                    "name": "Wyjdź z celi",
-                    "target":"Wyjście"
+                    "name": "Go back",
+                    "target": "Portal room"
                 },
                 {
-                    "name": "Odpocznij",
-                    "target":"Odpoczynek"
+                    "name": "Go to A",
+                    "target": "A"
                 }
             ]
-        },
-        {
-            "name": "Wyjście",
-            "onEnter": "Wychodzisz z celi i idziesz korytarzem aż docierasz do pokoju w którym rozmawia dwójka strażników, widzisz drzwi a przez szybę ulicę pełną ludzi.",
-            "actions":[
-                {
-                    "name": "Spróbuj się przekraść",
-                    "target":"Skradanie"
-                },
-                {
-                    "name": "Zaatakuj",
-                    "target":"Atak"
-                },
-                {
-                    "name": "Rzuć cegłą by odwrócić uwagę",
-                    "target":"Dywersja"
-                }
-            ]
-        },
-        {
-            "name": "Skradanie",
-            "onEnter": "Strażnik: Hej! A ty gdzie się wybierasz?",
-            "actions":[
-                {
-                    "name": "Uciekaj",
-                    "target":"Ucieczka i smierc"
-                }
-            ]
-        },
-        {
-            "name": "Atak",
-            "onEnter": "Powalasz jednego ze strażników ciosem w tył głowy, drugi dobywa miecza i ciężko cię rani.",
-            "onExit": "Odwracasz się próbując uciec lecz w połowie drogi do drzwi czujesz jak coś wbija ci się w plecy, przewracasz się.",
-            "actions":[
-                {
-                    "name": "Uciekaj",
-                    "target":"Smierc"
-                }
-            ]
-        },
-        {
-            "name": "Smierc",
-            "onEnter": "Umierasz",
-            "actions":[]
-        },
-        {
-            "name": "Ucieczka i smierc",
-            "onEnter": "Odwracasz się próbując uciec lecz w połowie drogi do drzwi czujesz jak coś wbija ci się w plecy, przewracasz się i umierasz.",
-            "actions":[]
-        },
-        {
-            "name": "Dywersja",
-            "onEnter": "Wybijasz cegłą okno, strażnicy wybiegają na ulice zostawiając otwarte drzwi",
-            "actions":[
-                {
-                    "name": "Uciekaj",
-                    "target":"Ucieczka"
-                }
-            ]
-        },
-        {
-            "name": "Ucieczka",
-            "onEnter": "Szybko doskakujesz do drzwi i sprawnym krokiem wychodzisz z budynku wtapiając się w tłum, udaje ci się uciec!",
-            "actions":[]
         }
     ]
 }
