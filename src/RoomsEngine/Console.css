@@ -1,12 +1,15 @@
 .Console{
     display: flex;
     flex-direction: column-reverse;
+    width:100%;
+    height: 50%;
+    word-break: break-word;
 }
 
-.p2{
+.Console .p2{
     opacity: 40%;
 }
 
-.p1{
+.Console .p1{
     opacity: 20%;
 }
